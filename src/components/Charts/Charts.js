@@ -1,10 +1,15 @@
 import React from 'react';
+import AmCharts from "@amcharts/amcharts3-react";
 
 class Charts extends React.Component{
     render(){
         return (
             <div>
-                This is charts
+                <AmCharts.React
+                    type="serial"
+                    theme="light"
+                    graphs={[]}
+                    dataProvider={[]} />
             </div>
         )
     }
