@@ -76,7 +76,7 @@ const Data = [
     "New_Users": 346,
     "Revenue_Per_User": 58.90453698455411,
     "Revenue_Per_Install": 1954.106936416185
-  },
+},
   {
     "Revenue": 460741,
     "TimeSegment": {
