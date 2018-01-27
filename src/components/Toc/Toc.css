@@ -71,9 +71,6 @@ body {
         text-transform: uppercase;
         font-size: .85em;
         list-style-type: upper-roman; }
-      .main-container .section-right .toc .sub li {
-        text-transform: none;
-        color: gray; }
 
 @media (min-width: 550px) {
   .main-container .section-right .toc {

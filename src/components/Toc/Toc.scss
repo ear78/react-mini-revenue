@@ -3,6 +3,7 @@
 // $lightGray: lightgray;
 // $gray: gray;
 // $white: #fff;
+@import '../../App.scss';
 
 * {
     box-sizing: border-box;
@@ -90,12 +91,6 @@ body {
                 text-transform: uppercase;
                 font-size: .85em;
                 list-style-type: upper-roman;
-            }
-            .sub {
-                li {
-                    text-transform: none;
-                    color: $gray;
-                }
             }
         }
     }

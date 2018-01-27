@@ -6,6 +6,7 @@ import './Toc.css';
 
 import Content from './Content/Content';
 import TableOfContents from './TableOfContents/TableOfContents';
+import ListItem from './ListItem/ListItem';
 
 class Toc extends React.Component{
     constructor(){
@@ -16,15 +17,13 @@ class Toc extends React.Component{
     }
     render(){
         const listItem = this.state.data.map((d,i) => {
-            return <li key={i}>{d.product}</li>
+            return <ListItem key={i} item={d.product}/>
         })
 
         const tableOfContentsList = this.state.data.map((d,i) => {
-            return <li key={i}>{d.product}
-                        <ol className="sub">
-                            <li>{d.table}</li>
-                        </ol>
-                    </li>
+            return <TableOfContents key={i}
+                    product={d.product}
+                    table={d.table} />
         })
 
         return (
@@ -40,7 +39,6 @@ class Toc extends React.Component{
                     <aside className="toc">
                         <h4>Table Of Contents</h4>
                         <ol>
-
                             {tableOfContentsList}
                         </ol>
                     </aside>
