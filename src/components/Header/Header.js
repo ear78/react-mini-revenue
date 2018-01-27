@@ -1,5 +1,7 @@
 import React from 'react';
+import Navigation from './Navigation/Navigation';
 import logo from '../../logo.svg';
+
 
 class Header extends React.Component{
     constructor(){
@@ -13,6 +15,7 @@ class Header extends React.Component{
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">{this.state.title}</h1>
+              <Navigation />
             </header>
         )
     }
