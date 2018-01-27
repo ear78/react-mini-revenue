@@ -1,0 +1,10 @@
+.charts h3 {
+  background: gainsboro;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 10px; }
+
+.charts span {
+  font-style: italic;
+  color: #31bfff; }

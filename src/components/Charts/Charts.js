@@ -1,8 +1,7 @@
 import React from 'react';
 import AmCharts from "@amcharts/amcharts3-react";
 import overview from '../../overview';
-
-
+import './Charts.css';
 
 class Charts extends React.Component{
     constructor(){
@@ -60,13 +59,40 @@ class Charts extends React.Component{
         const config = {
           "type": "serial",
           "theme": "light",
+          "legend": {
+              "useGraphSettings": true
+          },
           "categoryField": "Events",
+          "valueAxes": [{
+              "title": "Revenue",
+              "position": "left",
+              "unit": "$"
+          }],
           "graphs": [{
               "valueField": "Revenue",
+              "title": "Revenue",
               "type": "line",
-              "fillAlphas": 0.2,
-              "bullet": "round"
-          }],
+              "fillAlphas": 0.1,
+              "lineThickness": 2,
+              "bullet": "round",
+              "bulletBorderAlpha": 1,
+              "bulletColor": "#FFFFFF",
+              "bulletSize": 6,
+              "useLineColorForBulletBorder": true
+          },
+            {
+                "valueField": "Events",
+                "title": "Events",
+                "type": "line",
+                "fillAlphas": 0,
+                "lineThickness": 2,
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "bulletColor": "#FFFFFF",
+                "bulletSize": 6,
+                "useLineColorForBulletBorder": true
+            }],
+
           "dataProvider": this.state.events_revenue
         };
         const setup = {
@@ -91,11 +117,18 @@ class Charts extends React.Component{
               }
             }
 
+
+
         return (
-            <div>
-                <p>this is charts</p>
-                <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
-                <AmCharts.React style={{ width: "100%", height: "500px" }} options={setup} />
+            <div className="grid-x charts">
+                <h3>Am <span>Charts </span>Are The Best!!!</h3>
+                <div className="small-12 large-6 cell">
+                    <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
+                </div>
+                <div className="small-12 large-6 cell">
+                    <AmCharts.React style={{ width: "100%", height: "500px" }} options={setup} />
+                </div>
+
             </div>
         )
     }

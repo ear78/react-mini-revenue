@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation/Navigation';
 import logo from '../../logo.svg';
-
+import './Header.css';
 
 class Header extends React.Component{
     constructor(){
@@ -12,10 +12,12 @@ class Header extends React.Component{
     }
     render(){
         return (
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">{this.state.title}</h1>
+            <header className="header">
               <Navigation />
+              <div className="logo-container">
+                  <img src={logo} className="logo" alt="logo" />
+              </div>
+              <h1 className="title">{this.state.title}</h1>
             </header>
         )
     }

@@ -1,0 +1,39 @@
+.header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  a {
+      color: #9e9e9e;
+      margin: 0 5px;
+      text-transform: uppercase;
+      font-size: .8em;
+      border-bottom: 1px solid;
+      padding-bottom: 1px;
+      &:hover {
+          color: lighten(#9e9e9e, 30%);
+      }
+
+  }
+  a.active {
+      color: gainsboro;
+  }
+  .logo-container {
+      width: 70px;
+      margin: 5px auto;
+  }
+  h1 {
+      text-align: center;
+  }
+  ul {
+      margin-left: 0;
+  }
+  .logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 70px;
+  }
+
+  @keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}

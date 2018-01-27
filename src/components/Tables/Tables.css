@@ -1,0 +1,10 @@
+.tables h3 {
+  background: black;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: gray; }
+
+.tables span {
+  font-style: italic;
+  color: #31bfff; }

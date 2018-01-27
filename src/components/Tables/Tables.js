@@ -3,6 +3,7 @@ import Data from '../../overview';
 
 import RevenueTable from './RevenueTable/RevenueTable';
 import TotalUsers from './TotalUsers/TotalUsers';
+import './Tables.css';
 
 class Tables extends React.Component{
     constructor(props){
@@ -18,20 +19,21 @@ class Tables extends React.Component{
 
         let overview = this.state.data.map((d,i) => {
             return (
-                <div className="row" key={i}>
+                <div className="grid-x" key={i}>
                     <RevenueTable
                         title={this.state.title}
-                        rev={d.Revenue.toFixed(2)}/>
+                        rev={d.Revenue.toLocaleString({style: 'currency', currency: 'US'})}/>
 
                     <TotalUsers
-                        users={Math.round(d.Total_Users)}
+                        users={Math.round(d.Total_Users).toLocaleString()}
                         date={new Intl.DateTimeFormat('en-US', {month: 'short', day: '2-digit', year: 'numeric', hour: '2-digit'}).format(new Date(d.TimeSegment.end))}/>
                 </div>
             )
         });
 
         return (
-            <div>
+            <div className="tables">
+                <h3><span>Tables</span> Are Fun!!!</h3>
                 {overview}
             </div>
         )

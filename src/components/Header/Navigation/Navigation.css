@@ -1,0 +1,6 @@
+.navigation ul {
+  text-align: center; }
+
+@media (min-width: 550px) {
+  .navigation ul {
+    text-align: left; } }
