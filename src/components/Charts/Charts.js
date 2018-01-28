@@ -126,7 +126,7 @@ class Charts extends React.Component{
                     <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
                 </div>
                 <div className="small-12 large-6 cell">
-                    <AmCharts.React style={{ width: "100%", height: "500px" }} options={setup} />
+                    <AmCharts.React style={{background: '#31bfff4d', width: "100%", height: "500px" }} options={setup} />
                 </div>
 
             </div>

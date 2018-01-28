@@ -1,0 +1,9 @@
+@import '../../App.scss';
+
+.line {
+    width: 100%;
+    max-width: 1px;
+    background: $lightGray;
+    height: 50px;
+    margin: 40px auto 5px;
+}
