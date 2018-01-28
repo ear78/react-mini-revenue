@@ -33,7 +33,7 @@ class Tables extends React.Component{
 
         return (
             <div className="tables">
-                <h3><span>Tables</span> Are Fun!!!</h3>
+                <h4><span>Tables</span> Are Fun!!!</h4>
                 {overview}
             </div>
         )

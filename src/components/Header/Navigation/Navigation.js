@@ -7,9 +7,15 @@ class Navigation extends React.Component{
         return(
             <nav className="navigation">
                 <ul >
-                    <NavLink to='/tables' >Tables</NavLink>
-                    <NavLink to='/charts' >Charts</NavLink>
-                    <NavLink to='/toc' >Table Of Contents</NavLink>
+                    <NavLink exact to='/' >Home<i class="fa fa-tree" aria-hidden="true"></i>
+                    </NavLink>
+                    <NavLink to='/tables' >Tables<i class="fa fa-table" aria-hidden="true"></i>
+                    </NavLink>
+                    <NavLink to='/charts' >Charts<i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    </NavLink>
+                    <NavLink to='/toc' >TOC<i class="fa fa-list-alt" aria-hidden="true"></i>
+
+                    </NavLink>
                 </ul>
             </nav>
         )

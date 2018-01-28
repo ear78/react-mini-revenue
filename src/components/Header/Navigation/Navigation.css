@@ -1,6 +1,9 @@
 .navigation ul {
   text-align: center; }
 
+.navigation i {
+  margin-left: 4px; }
+
 @media (min-width: 550px) {
   .navigation ul {
     text-align: left; } }

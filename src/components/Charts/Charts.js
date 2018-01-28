@@ -121,7 +121,7 @@ class Charts extends React.Component{
 
         return (
             <div className="grid-x charts">
-                <h3>Am <span>Charts </span>Are The Best!!!</h3>
+                <h4>Am <span>Charts </span>Are The Best!!!</h4>
                 <div className="small-12 large-6 cell">
                     <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
                 </div>
