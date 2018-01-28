@@ -1,6 +1,6 @@
 To start up this app, have node.js installed on your system and in your console go to the directory of the project and type in npm start.  This will start up a local development server typically on port 3000, and open up you default browser with the app starting at the "/" home index page.  You can also visit the finished app hosted on Heroku, https://react-mini-revenue.herokuapp.com/ for ease of seeing something tangable.
 
-The technologies used within this app are React, Create React App, SASS, Foundation front end framework for use a css grid system, Am Charts to display the two charts within the app, and finally hosted on Heroku.
+The technologies used within this app are React, Create React App, SASS, Foundation front end framework for use a css grid system, Am Charts to display the two charts within the app, Font Awesome for some icons and finally hosted on Heroku.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
