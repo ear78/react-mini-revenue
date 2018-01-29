@@ -1,5 +1,5 @@
 import React from 'react';
-import MobileMenu from '../UI/MobileMenu/MobileMenu';
+import MobileMenu from './MobileMenu/MobileMenu';
 import Navigation from './Navigation/Navigation';
 import logo from '../../logo.svg';
 import './Header.css';
