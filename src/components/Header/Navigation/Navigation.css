@@ -19,4 +19,6 @@
     display: block;
     text-align: left; }
   .navigation button {
+    display: none; }
+  .navigation .menu-open {
     display: none; } }
