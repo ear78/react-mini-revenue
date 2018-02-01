@@ -1,0 +1,49 @@
+.modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    width: 50vw;
+    height: 40vh;
+    // transition: all .5s ease-out;
+
+}
+
+.modalOpen {
+    animation: openModal .6s ease forwards;
+}
+
+.modalClose {
+    animation: closeModal .6s ease forwards;
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: .8;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
