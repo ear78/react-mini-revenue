@@ -1,5 +1,5 @@
 import React from 'react';
-import Transition from 'react-transition-group/Transition';
+// import Transition from 'react-transition-group/Transition';
 
 import './Home.css';
 import Line from '../UI/Line/Line';

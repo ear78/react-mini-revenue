@@ -1,4 +1,4 @@
-const Data = [
+[
   {
     "Revenue": 1542873,
     "TimeSegment": {
@@ -312,5 +312,3 @@ const Data = [
     "Revenue_Per_Install": 3021.0373626373625
   }
 ]
-
-export default Data;

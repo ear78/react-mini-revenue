@@ -1,137 +1,101 @@
 import React from 'react';
-import AmCharts from "@amcharts/amcharts3-react";
 import overview from '../../overview';
 import './Charts.css';
+import Chart from './Chart'
+import ChartPie from './ChartPie'
+import Spinner from '../UI/Spinner/Spinner'
 
-class Charts extends React.Component{
-    constructor(){
-        super();
+class Charts extends React.Component {
+  constructor() {
+    super();
 
-        this.state = {
-      events_revenue: null,
-      users: null,
+    this.state = {
+      events_revenue: [],
+      users: [],
       totalNewUsers: null,
-      totalUsers: null
+      totalUsers: null,
+      pieData: [],
+      dataReady: false
     };
   }
 
-  componentDidMount(){
-      setTimeout(() => {
-          this.setState({
-              events_revenue: events_revs,
-              users: users,
-              totalNewUsers: totalNewUsers,
-              totalUsers: totalUsers
-          })
-      },10);
+  processData() {
+    // TRANSFORMING DATA FOR GRAPH ONE
+    const events_revs = overview.map( ( event, i ) => {
+      return {
+        Revenue: event.Revenue,
+        Events: event.Events,
+        Split: i
+      };
+    } );
 
-      //TRANSFORMING DATA FOR GRAPH ONE
-      const events_revs = overview.map((event, i) => {
-          return {
-              Revenue: event.Revenue,
-              Events: event.Events,
-          };
-      });
+    // INITIALIZING ARRAYS FOR TRANSFORMED USER DATA
+    const newUserArr = [];
+    const newTotalUsersArr = [];
 
-      //INITIALIZING ARRAYS FOR TRANSFORMED USER DATA
-      const newUserArr = [];
-      const newTotalUsersArr = [];
+    // TRANSFORMING DATA FOR GRAPH TWO
+    const users = overview.map( ( data, i ) => {
+      const newUser = newUserArr.push( data.New_Users );
+      const newTotalUsers = newTotalUsersArr.push( Math.round( data.Total_Users ) );
+      const user = `User ${i + 1}`
+      return {
+        ...data,
+        user
+      };
+    } );
 
-      //TRANSFORMING DATA FOR GRAPH TWO
-      const users = overview.map((user, i) => {
-          const newUser = newUserArr.push(user.New_Users);
-          const newTotalUsers = newTotalUsersArr.push(Math.round(user.Total_Users));
-          return user;
-      });
+    // REDUCER FOR GETTING TOTALS
+    const reducer = ( acc, currVal ) => {
+      return acc + currVal
+    }
 
-      //REDUCER FOR GETTING TOTALS
-      const reducer = (acc, currVal) => {
-          return acc + currVal
+    // TOTALED VALUES
+    const totalNewUsers = newUserArr.reduce( reducer );
+    const totalUsers = newTotalUsersArr.reduce( reducer );
+
+    this.setState( () => {
+      return {
+        events_revenue: events_revs,
+        users: users,
+        totalNewUsers: totalNewUsers,
+        totalUsers: totalUsers,
+        dataReady: true
       }
-
-      //TOTALED VALUES
-      const totalNewUsers = newUserArr.reduce(reducer);
-      const totalUsers = newTotalUsersArr.reduce(reducer);
-
+    } )
   }
 
-    render(){
-        const config = {
-          "type": "serial",
-          "theme": "light",
-          "legend": {
-              "useGraphSettings": true
-          },
-          "categoryField": "Events",
-          "valueAxes": [{
-              "title": "Revenue",
-              "position": "left",
-              "unit": "$"
-          }],
-          "graphs": [{
-              "valueField": "Revenue",
-              "title": "Revenue",
-              "type": "line",
-              "fillAlphas": 0.1,
-              "lineThickness": 2,
-              "bullet": "round",
-              "bulletBorderAlpha": 1,
-              "bulletColor": "#FFFFFF",
-              "bulletSize": 6,
-              "useLineColorForBulletBorder": true
-          },
-            {
-                "valueField": "Events",
-                "title": "Events",
-                "type": "line",
-                "fillAlphas": 0,
-                "lineThickness": 2,
-                "bullet": "round",
-                "bulletBorderAlpha": 1,
-                "bulletColor": "#FFFFFF",
-                "bulletSize": 6,
-                "useLineColorForBulletBorder": true
-            }],
+  componentDidMount() {
+    this.processData()
+  }
 
-          "dataProvider": this.state.events_revenue
-        };
-        const setup = {
-              "type": "pie",
-              "theme": "light",
-              "dataProvider": [ {
-                "title": "New",
-                "value": this.state.totalNewUsers
-              }, {
-                "title": "Total Users",
-                "value": this.state.totalUsers
-              } ],
-              "titleField": "title",
-              "valueField": "value",
-              "labelRadius": 10,
+  render() {
+    let chartXY
+    if ( this.state.dataReady && this.state.events_revenue.length ) {
+      chartXY = <Chart id="xyChart" data={this.state.events_revenue}/>
+    } else {
+      chartXY = <Spinner />
+    }
 
-              "radius": "35%",
-              "innerRadius": "60%",
-              "labelText": "[[title]]",
-              "export": {
-                "enabled": true
-              }
-            }
+    let chartPie
+    if ( this.state.dataReady && this.state.users ) {
+      chartPie = <ChartPie id="pieChart" value="Revenue" category="user" data={this.state.users}/>
+    } else {
+      chartPie = <Spinner />
+    }
 
-
-
-        return (
-            <div className="grid-x charts">
+    return (
+      <div className="grid-x charts">
                 <h4>Am <span>Charts </span>Are The Best!!!</h4>
                 <div className="small-12 large-6 cell">
-                    <AmCharts.React style={{ width: "100%", height: "500px" }} options={config} />
+                  {chartXY}
                 </div>
                 <div className="small-12 large-6 cell">
-                    <AmCharts.React style={{background: '#31bfff4d', width: "100%", height: "500px" }} options={setup} />
+                  {chartPie}
                 </div>
 
             </div>
-        )
-    }
+    )
+  }
 }
 
 export default Charts;
