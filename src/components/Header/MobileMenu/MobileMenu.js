@@ -1,13 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {
+  NavLink
+} from 'react-router-dom';
 
-import './MobileMenu.css';
+import styles from './MobileMenu.module.scss';
 
-const mobileMenu = (props) => {
-    return (
-        <div className={props.toggle ? "mobile-menu" : "mobile-menu mobile-menu-active"}>
-            <p ><i className="fa fa-circle menu-close" onClick={props.click} aria-hidden="true"></i></p>
-            
+const mobileMenu = ( props ) => {
+  return (
+    <div className={props.toggle ? `${styles.MobileMenu}` : `${styles.MobileMenu} ${styles.Active}`}>
+            <div className={props.toggle ? '' : styles.MobileMenuBackground}></div>
+            <p ><i className={`fa fa-circle ${styles.MenuClose}`} onClick={props.click} aria-hidden="true"></i></p>
+
             <ul>
                 <NavLink exact to='/' onClick={props.click}>Home<i className="fa fa-tree" aria-hidden="true" ></i>
                 </NavLink>
@@ -19,7 +22,7 @@ const mobileMenu = (props) => {
                 </NavLink>
             </ul>
         </div>
-    )
+  )
 
 }
 

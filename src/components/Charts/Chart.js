@@ -58,7 +58,7 @@ function Chart( props ) {
     };
   }, [] );
 
-  return <div id={`chart-${props.id}`} style={{ width: "100%", height: "500px"}}></div>
+  return <div id={`chart-${props.id}`} style={{ width: "100%", height: "400px"}}></div>
 }
 
 export default Chart

@@ -4,23 +4,23 @@ import Navigation from './Navigation/Navigation';
 import logo from '../../logo.svg';
 import './Header.css';
 
-class Header extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            title: 'Welcome to Mini Project',
-            isToggleOn: true
-        }
+class Header extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: 'Welcome to Mini Project',
+      isToggleOn: true
     }
+  }
 
-    handleToggleMenu = () => {
-        this.setState((prevState) => ({
-            isToggleOn: !prevState.isToggleOn
-        }));
-    }
-    render(){
-        return (
-            <header className="header">
+  handleToggleMenu = () => {
+    this.setState( ( prevState ) => ( {
+      isToggleOn: !prevState.isToggleOn
+    } ) );
+  }
+  render() {
+    return (
+      <header className="header">
               <Navigation
                   click={this.handleToggleMenu}/>
 
@@ -34,8 +34,8 @@ class Header extends React.Component{
                   toggle={this.state.isToggleOn}
                   click={this.handleToggleMenu}/>
             </header>
-        )
-    }
+    )
+  }
 }
 
 export default Header;
