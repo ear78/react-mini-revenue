@@ -1,6 +1,7 @@
 import React from 'react';
 import overview from '../../overview';
-import './Charts.css';
+import styles from './Charts.module.scss'
+import Paragraph from '../UI/Paragraph/Paragraph'
 import Chart from './Chart'
 import ChartPie from './ChartPie'
 import Spinner from '../UI/Spinner/Spinner'
@@ -84,16 +85,27 @@ class Charts extends React.Component {
     }
 
     return (
-      <div className="grid-x charts">
-                <h4>Am <span>Charts </span>Are The Best!!!</h4>
-                <div className="small-12 large-6 cell">
-                  {chartXY}
-                </div>
-                <div className="small-12 large-6 cell">
-                  {chartPie}
-                </div>
-
+      <div className={`${styles.Charts}`}>
+        <h4><span>Charts </span></h4>
+        <div className={`grid-container`}>
+          <div className={`grid-x grid-margin-x`}>
+            <div className={`small-12 cell`}>
+              <Paragraph>This section brings in chart data and transforms the data into useable values for displaying in the chart.</Paragraph>
             </div>
+
+            <div className="small-12 large-6 cell">
+              <div className={styles.ChartWrapper}>
+                {chartXY}
+              </div>
+            </div>
+            <div className="small-12 large-6 cell">
+              <div className={styles.ChartWrapper}>
+                {chartPie}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }

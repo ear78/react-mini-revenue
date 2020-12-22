@@ -1,0 +1,21 @@
+.Charts {
+  h4 {
+    background: #000;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+  span {
+    font-style: italic;
+    color: #31bfff;
+  }
+
+  .ChartWrapper {
+    padding: 25px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    margin: 25px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  }
+}

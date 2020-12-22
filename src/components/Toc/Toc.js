@@ -2,50 +2,57 @@ import React from 'react';
 
 import overview from '../../overview';
 import mockData from '../../mockData';
-import './Toc.css';
+import styles from './Toc.module.scss';
 
-import Content from './Content/Content';
+import PageTitle from '../UI/PageTitle/PageTitle';
 import TableOfContents from './TableOfContents/TableOfContents';
 import ListItem from './ListItem/ListItem';
 
-class Toc extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            data: mockData
-        }
+class Toc extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: mockData
     }
-    render(){
-        const listItem = this.state.data.map((d,i) => {
-            return <ListItem key={i} item={d.product}/>
-        })
+  }
+  render() {
+    const listItem = this.state.data.map( ( d, i ) => {
+      return <ListItem key={i} item={d.product}/>
+    } )
 
-        const tableOfContentsList = this.state.data.map((d,i) => {
-            return <TableOfContents key={i}
+    const tableOfContentsList = this.state.data.map( ( d, i ) => {
+      return <TableOfContents key={i}
                     product={d.product}
                     table={d.table} />
-        })
+    } )
 
-        return (
-            <main className="main-container">
-                <nav className="nav-left">
-                    <ul>
-                        {listItem}
-                    </ul>
-                </nav>
-                <section className="section-right">
-                    <Content />
+    return (
+      <div className={styles.TOC}>
+        <PageTitle>TOC</PageTitle>
+          <div className={styles.MainContainer}>
+            <nav className={styles.NavLeft}>
+                <ul>
+                    {listItem}
+                </ul>
+            </nav>
+            <section className={styles.SectionRight}>
+              <div className={styles.Content}>
+                      <h1>Fake Heading</h1>
+                      <h4>Fake Sub Heading title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
 
-                    <aside className="toc">
-                        <h4>Table Of Contents</h4>
-                        <ol>
-                            {tableOfContentsList}
-                        </ol>
-                    </aside>
-                </section>
-            </main>
-        )
-    }
+                <aside className={styles.toc}>
+                    <h4>Table Of Contents</h4>
+                    <ol>
+                        {tableOfContentsList}
+                    </ol>
+                </aside>
+            </section>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Toc;

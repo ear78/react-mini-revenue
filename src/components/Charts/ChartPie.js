@@ -23,10 +23,7 @@ function ChartPie( props ) {
               "category": categoryProp
             }
           } ],
-          // Add data
           "data": dataSet,
-          // And, for a good measure, let's add a legend
-          "legend": {}
         },
         `chart-${props.id}`,
         am4charts.PieChart );
@@ -39,7 +36,7 @@ function ChartPie( props ) {
     },
         [] );
 
-  return <div id={`chart-${props.id}`} style={{ width: "100%", height: "500px"}}></div>
+  return <div id={`chart-${props.id}`} style={{ width: "100%", height: "400px"}}></div>
 }
 
 export default ChartPie

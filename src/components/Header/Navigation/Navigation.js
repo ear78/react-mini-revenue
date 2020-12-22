@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './Navigation.css';
+import {
+  NavLink
+} from 'react-router-dom';
+import styles from './Navigation.module.scss';
 
-class Navigation extends React.Component{
-    render(){
-        return(
-            <nav className="navigation">
+class Navigation extends React.Component {
+  render() {
+    return (
+      <nav className={styles.Navigation}>
                 <ul >
                     <NavLink exact to='/' >Home<i className="fa fa-tree" aria-hidden="true"></i>
                     </NavLink>
@@ -17,11 +19,11 @@ class Navigation extends React.Component{
 
                     </NavLink>
                 </ul>
-                <p className="menu-open" onClick={this.props.click}><i className="fa fa-circle-thin" aria-hidden="true"></i>
+                <p className={styles.MenuOpen} onClick={this.props.click}><i className="fa fa-circle-thin" aria-hidden="true"></i>
                 </p>
             </nav>
-        )
-    }
+    )
+  }
 }
 
 export default Navigation;

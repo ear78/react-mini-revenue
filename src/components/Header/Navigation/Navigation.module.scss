@@ -1,0 +1,33 @@
+.Navigation ul {
+  display: none;
+  text-align: center;
+}
+
+.Navigation a {
+  margin-bottom: 10px;
+}
+
+.Navigation i {
+  margin-left: 4px;
+}
+
+.Navigation .MenuOpen {
+  text-align: right;
+}
+.Navigation .MenuOpen:hover {
+  cursor: pointer;
+  color: #31bfff;
+}
+
+@media (min-width: 550px) {
+  .Navigation ul {
+    display: block;
+    text-align: left;
+  }
+  .Navigation button {
+    display: none;
+  }
+  .Navigation .MenuOpen {
+    display: none;
+  }
+}
