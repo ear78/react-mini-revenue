@@ -4,8 +4,10 @@ import React, {
 } from 'react'
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import spiritedaway from "@amcharts/amcharts4/themes/spiritedaway";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
+am4core.useTheme( spiritedaway );
 am4core.useTheme( am4themes_animated );
 
 function ChartPie( props ) {
@@ -21,8 +23,20 @@ function ChartPie( props ) {
             "dataFields": {
               "value": valueProp,
               "category": categoryProp
-            }
+            },
+            "slices": {
+              "cornerRadius": 5
+            },
+            "labels": {
+              "fontSize": 11,
+              "text": "{value.percent.formatNumber('#.0')}%"
+            },
+            "ticks": {
+              "disabled": true
+            },
+            "alignLabels": false
           } ],
+          "innerRadius": "50%",
           "data": dataSet,
         },
         `chart-${props.id}`,

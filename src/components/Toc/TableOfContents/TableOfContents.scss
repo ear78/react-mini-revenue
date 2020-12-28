@@ -1,13 +1,13 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
 .section-right {
-    .toc {
-        .sub {
-            li {
-                text-transform: none;
-                color: $gray;
-            }
-        }
-
+  .toc {
+    .sub {
+      li {
+        opacity: 0;
+        text-transform: none;
+        color: $gray;
+      }
     }
+  }
 }
