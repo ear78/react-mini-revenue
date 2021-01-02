@@ -2,7 +2,7 @@ import React from 'react';
 import MobileMenu from './MobileMenu/MobileMenu';
 import Navigation from './Navigation/Navigation';
 import logo from '../../logo.svg';
-import './Header.css';
+import styles from './Header.module.scss';
 
 class Header extends React.Component {
   constructor() {
@@ -20,14 +20,14 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <header className="header">
+      <header className={styles.Header}>
               <Navigation
                   click={this.handleToggleMenu}/>
 
-              <div className="logo-container">
-                  <img src={logo} className="logo" alt="logo" />
+                <div className={styles.LogoContainer}>
+                  <img src={logo} className={styles.Logo} alt="logo" />
               </div>
-              <h1 className="title">{this.state.title}</h1>
+              <h1 className={styles.Title}>{this.state.title}</h1>
 
               {/* Mobile Menu */}
               <MobileMenu

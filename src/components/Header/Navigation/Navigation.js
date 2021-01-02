@@ -16,10 +16,11 @@ class Navigation extends React.Component {
                     <NavLink to='/charts' >Charts<i className="fa fa-bar-chart" aria-hidden="true"></i>
                     </NavLink>
                     <NavLink to='/toc' >TOC<i className="fa fa-list-alt" aria-hidden="true"></i>
-
                     </NavLink>
                 </ul>
-                <p className={styles.MenuOpen} onClick={this.props.click}><i className="fa fa-circle-thin" aria-hidden="true"></i>
+                <p className={styles.MenuOpen}
+                  onClick={this.props.click}>
+                  <i className="fa fa-circle-thin" aria-hidden="true"></i>
                 </p>
             </nav>
     )
