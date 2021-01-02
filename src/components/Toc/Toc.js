@@ -7,7 +7,7 @@ import {
   staggered,
   fadeIn
 } from "../../assets/Animate"
-
+import TocContent from './TocContent/TocContent.js';
 import PageTitle from '../UI/PageTitle/PageTitle';
 import TableOfContents from './TableOfContents/TableOfContents';
 import ListItem from './ListItem/ListItem';
@@ -16,22 +16,42 @@ class Toc extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: mockData
+      data: mockData,
+      content: {}
     }
+
+    /* Create Refs for animations */
     this.rightSection = React.createRef()
     this.myElements = []
     this.tocRefs = []
 
   }
 
+  handleSetContent( id ) {
+    let x = this.state.data.find( ( el, i ) => {
+      el = i === id ? el : ''
+      return el
+    } )
+
+    this.setState( () => ( {
+      content: x
+    } ) )
+  }
+
   componentDidMount() {
+    // Set first data set 
+    this.handleSetContent( 0 )
+
+    // Animations
     staggered( this.myElements )
     fadeIn( this.rightSection.current )
   }
   render() {
     const listItem = this.state.data.map( ( d, i ) => {
-      return <ListItem key={i} inputRef={el => this.myElements[i] = el}
-        item={d.product}/>
+      return <ListItem key={i}
+        inputRef={el => this.myElements[i] = el}
+        item={d.product}
+        click={() => this.handleSetContent(i)}/>
     } )
 
     const tableOfContentsList = this.state.data.map( ( d, i ) => {
@@ -50,11 +70,7 @@ class Toc extends React.Component {
                 </ul>
             </nav>
             <section ref={this.rightSection} className={styles.SectionRight}>
-              <div className={styles.Content}>
-                      <h1>Fake Heading</h1>
-                      <h4>Fake Sub Heading title</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
+                <TocContent content={this.state.content}/>
 
                 <aside className={styles.ContentRight}>
                     <h4>Table Of Contents</h4>
