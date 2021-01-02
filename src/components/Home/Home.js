@@ -1,6 +1,6 @@
 import React from 'react';
-
 import styles from './Home.module.scss';
+import PageTitle from '../UI/PageTitle/PageTitle';
 import Line from '../UI/Line/Line';
 import Modal from '../UI/Modal/Modal';
 import {
@@ -36,6 +36,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className={styles.Home}>
+        <PageTitle>HOME</PageTitle>
         <div className={`grid-container`}>
           <div className={`grid-x`}>
             <div className={`small-12 medium-10 medium-offset-1 cell text-center`}>
