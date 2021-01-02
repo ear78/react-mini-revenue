@@ -20,7 +20,9 @@ function Chart( props ) {
           "dataFields": {
             "category": "Split"
           },
-          "title": "Events",
+          "title": {
+            "text": "Events"
+          },
             } ],
         "yAxes": [ {
           "type": "ValueAxis",
@@ -33,21 +35,24 @@ function Chart( props ) {
             "dataFields": {
               "valueY": "Revenue",
               "categoryX": "Split"
-            }
+            },
+            "name": "Revenue"
         },
           {
             "type": "LineSeries",
             "dataFields": {
               "valueY": "Events",
               "categoryX": "Split"
-            }
+            },
+            "name": "Events"
           }
         ],
 
         // Add data
         "data": dataSet,
         // And, for a good measure, let's add a legend
-        "legend": {}
+        "legend": {},
+        "cursor": {}
       },
       `chart-${props.id}`, am4charts.XYChart );
 

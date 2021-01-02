@@ -25,6 +25,7 @@ function ChartPie( props ) {
               "category": categoryProp
             },
             "slices": {
+              "tooltipText": "[bold]{category}:[/] {value.percent.formatNumber('#.0')}%",
               "cornerRadius": 5
             },
             "labels": {
