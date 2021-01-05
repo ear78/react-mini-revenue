@@ -1,13 +1,13 @@
 import React from 'react';
-import './TableOfContents.css';
+import styles from './TableOfContents.module.scss';
 
 const tableOfContents = ( props ) => {
   return (
     <li>{props.product}
-                        <ol className="sub">
-                            <li className="">{props.table}</li>
-                        </ol>
-                    </li>
+      <ol className={styles.Sub}>
+          <li>{props.table}</li>
+      </ol>
+    </li>
   )
 }
 

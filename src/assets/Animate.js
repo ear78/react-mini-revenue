@@ -21,7 +21,8 @@ export const staggered = ( elem, time = .1 ) => {
       x: -150,
       opacity: 0
     },
-
+    delay: .2,
+    duration: .5,
     ease: "back",
     stagger: time
   } )

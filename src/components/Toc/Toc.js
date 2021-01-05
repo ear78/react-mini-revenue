@@ -39,12 +39,12 @@ class Toc extends React.Component {
   }
 
   componentDidMount() {
-    // Set first data set 
-    this.handleSetContent( 0 )
-
     // Animations
     staggered( this.myElements )
     fadeIn( this.rightSection.current )
+
+    // Set first data set
+    this.handleSetContent( 0 )
   }
   render() {
     const listItem = this.state.data.map( ( d, i ) => {
